@@ -34,7 +34,7 @@ class NetworkTileService : TileService() {
     private fun openDialerWithCode() {
         val diagnosticsCode = "*#*#4636#*#"
         val intent = Intent(Intent.ACTION_DIAL).apply {
-            data = Uri.parse("tel:$diagnosticsCode")
+            data = Uri.fromParts("tel", diagnosticsCode, null)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
         }
         startActivity(intent)
