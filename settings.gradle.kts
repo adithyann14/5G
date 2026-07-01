@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BypassTile"
+rootProject.name = "TestingMenuShortcut"
 include(":app")

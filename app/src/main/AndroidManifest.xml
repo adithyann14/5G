@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
+        No permissions of any kind needed. We never call the hidden Settings
+        activity directly (that's the part that was getting blocked by
+        exported=false). Instead the tile opens the stock Phone app with
+        *#*#4636#*#* already typed in — the same as if you'd typed it
+        yourself — and the dialer's own digit-pattern listener takes it from
+        there. ACTION_DIAL (just populating the dialer, not placing a call)
+        needs zero permissions, unlike ACTION_CALL.
+    -->
+
     <application
         android:allowBackup="false"
+        android:icon="@drawable/ic_testing_menu"
         android:label="@string/app_name">
 
-        <!-- No launcher activity — tile only accessible via Quick Settings. -->
-
+        <!--
+            No launcher Activity on purpose — this app has no UI and won't
+            appear in the app drawer. The only way to use it is adding the
+            tile from Quick Settings → Edit.
+        -->
         <service
-            android:name=".NetworkTileService"
+            android:name=".TestingMenuTileService"
             android:exported="true"
-            android:icon="@drawable/ic_tile_network"
+            android:icon="@drawable/ic_testing_menu"
             android:label="@string/tile_label"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>

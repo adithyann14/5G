@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace  = "com.example.fiveg"
+    namespace  = "com.example.testingmenu"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.fiveg"
-        minSdk        = 29   // Quick Settings Tile requires API 29
+        applicationId = "com.example.testingmenu"
+        minSdk        = 24   // PackageManager.resolveActivity(Intent, ResolveInfoFlags) flow works fine from here up
         targetSdk     = 36
         versionCode   = 1
         versionName   = "1.0"
@@ -23,10 +23,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            // No signingConfig set here on purpose — this produces an
-            // unsigned release APK for now. See .github/workflows/build.yml
-            // for a ready-to-uncomment signed-release job once you have a
-            // keystore to wire up.
+            // Unsigned on purpose, same as the build.yml note below.
         }
         debug {
             isDebuggable = true
@@ -45,5 +42,4 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
-    implementation(libs.kotlinx.coroutines.android)
 }

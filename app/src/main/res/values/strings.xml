@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">5G</string>
-    <string name="tile_label">5G</string>
-    <string name="tile_subtitle">Network Diagnostics</string>
+    <string name="app_name">Test Shortcut</string>
+    <string name="tile_label">Test Shortcut</string>
+    <string name="toast_not_available">Couldn\'t open the dialer on this device.</string>
 </resources>
